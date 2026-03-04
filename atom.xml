@@ -5,7 +5,7 @@
   <link href="https://mizuki.mysqil.com/" rel="alternate" type="text/html"/>
   <link href="https://mizuki.mysqil.com/atom.xml" rel="self" type="application/atom+xml"/>
   <id>https://mizuki.mysqil.com/</id>
-  <updated>2026-03-04T15:52:57.604Z</updated>
+  <updated>2026-03-04T15:59:13.044Z</updated>
   <language>ja</language>
   <entry>
     <title>Markdown Tutorial</title>
@@ -729,6 +729,24 @@ This is another regular paragraph.
       <name>まつざか ゆき</name>
     </author>
     <category term="Examples"></category>
+  </entry>
+  <entry>
+    <title>初春的浅棕色</title>
+    <link href="https://mizuki.mysqil.com/posts/xiaochen-first-post/" rel="alternate" type="text/html"/>
+    <id>https://mizuki.mysqil.com/posts/xiaochen-first-post/</id>
+    <published>2026-03-04T00:00:00.000Z</published>
+    <updated>2026-03-04T00:00:00.000Z</updated>
+    <summary>记一记把博客换成浅棕色时的心情</summary>
+    <content type="html"><![CDATA[<p>从今天开始，我想把博客改叫“小晨的 Blog”。这个决定，很像是给生活换上一件浅棕色的外套：看起来柔和，又足够坚定。字体、配色、横幅——这些在别人眼里是“主题设置”的东西，对我来说是心情的手写注释。</p>
+<p>午后的阳光落在桌面，温度刚好，让人忍不住把所有的标签页都关掉，只留下一页写作窗口。我写下这些字的时候，有点像在堆砌一座小小的树屋：不一定有人来访，但我自己知道，那里有一盏常亮的灯。</p>
+<p>改主题的时候，顺手翻了一遍旧文章，忽然发现自己其实很喜欢写“没有什么大事发生”的一天。比如，今天只喝了一杯热牛奶，想起了小时候冬天的窗台；比如，想起 Capoo 那句“把我家里的东西交出来”，就嚷嚷着要把站点清空重来。听起来很折腾，但折腾完，心里会亮堂很多。</p>
+<p>我想让这座站点慢慢装满：一些照片，一些碎碎念，偶尔贴上喜欢的歌，记录一段动画、一个游戏，或者只是某晚的云层颜色。它可以慢慢长大，也可以随时推倒，从头再搭建一次。</p>
+<p>如果你看到了这里，就当是一起坐在浅棕色的长椅上聊聊天吧。我会继续写，慢慢写，用自己的速度。EOF</p>
+]]></content>
+    <author>
+      <name>まつざか ゆき</name>
+    </author>
+    <category term="随笔"></category>
   </entry>
   <entry>
     <title>Markdown Extended Features</title>
