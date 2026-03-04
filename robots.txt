@@ -3,4 +3,4 @@ Disallow: /
 Allow: /$
 Allow: /posts/
 
-Sitemap: https://blog.chenqwq.xyz/sitemap-index.xml
+Sitemap: https://blog.chenqwq.cn/sitemap-index.xml
