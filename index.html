@@ -3,137 +3,113 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Capoo · Cloud Garden</title>
-  <meta name="description" content="一页式介绍：Capoo 的色彩、情绪与灵感。" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <title>Capoo · Lazy Day Notes</title>
+  <meta name="description" content="一页式卡片，记录 Capoo 的随手灵感。" />
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #030c1c;
-      --text: #f8fbff;
-      --muted: rgba(248, 251, 255, 0.65);
-      --panel: rgba(9, 22, 45, 0.75);
-      --accent: #66e4ff;
-      --accent-2: #8b7bff;
-      font-size: 16px;
+      font-family: 'Inter', 'HarmonyOS Sans', 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #111827;
+      background: #f8fafc;
     }
 
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
     }
 
     body {
       margin: 0;
-      font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: radial-gradient(circle at 20% 20%, rgba(102, 228, 255, 0.18), transparent 45%),
-                  radial-gradient(circle at 80% 0%, rgba(139, 123, 255, 0.25), transparent 45%),
-                  var(--bg);
-      color: var(--text);
+      background: #f8fafc;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 60px 16px 80px;
     }
 
-    .shell {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: min(7vw, 80px) min(6vw, 56px);
+    .page {
+      width: min(920px, 100%);
+      background: #fff;
+      border-radius: 32px;
+      padding: clamp(32px, 5vw, 64px);
+      box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+      border: 1px solid rgba(15, 23, 42, 0.05);
     }
 
     header {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
       align-items: center;
     }
 
-    .hero-card {
-      background: var(--panel);
-      border: 1px solid rgba(102, 228, 255, 0.2);
-      border-radius: 28px;
-      padding: 32px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 25px 70px rgba(4, 14, 37, 0.55);
-    }
-
-    .hero-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.12), transparent 45%);
-      pointer-events: none;
+    .hero {
+      flex: 1 1 320px;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      margin: 0 0 12px;
+      font-size: clamp(2.1rem, 4vw, 3rem);
       letter-spacing: -0.02em;
     }
 
-    .hero-card p {
-      margin: 16px 0 0;
-      line-height: 1.6;
-      color: var(--muted);
+    .lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #475467;
+      line-height: 1.7;
+    }
+
+    .avatar {
+      flex: 0 1 220px;
     }
 
     .tagline {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
+      gap: 6px;
+      padding: 6px 12px;
       border-radius: 999px;
-      background: rgba(102, 228, 255, 0.18);
-      color: var(--accent);
+      background: rgba(14, 165, 233, 0.12);
+      color: #0ea5e9;
       font-weight: 600;
-      letter-spacing: 0.08em;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
+      margin-bottom: 18px;
     }
 
-    .capoo-avatar {
-      width: min(320px, 80vw);
-      justify-self: center;
-      filter: drop-shadow(0 20px 40px rgba(3, 12, 28, 0.65));
-    }
-
-    section {
-      margin-top: 72px;
-    }
-
-    .panel-grid {
+    .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 20px;
+      gap: 18px;
+      margin-top: 40px;
     }
 
-    .panel {
-      background: rgba(6, 18, 38, 0.78);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 22px;
+    .card {
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
       padding: 24px;
+      background: #fff;
       min-height: 220px;
-      position: relative;
-      overflow: hidden;
     }
 
-    .panel h2 {
+    .card h2 {
       margin: 0;
-      font-size: 1rem;
-      letter-spacing: 0.2em;
-      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.28em;
       text-transform: uppercase;
+      color: #94a3b8;
     }
 
-    .panel h3 {
+    .card h3 {
       margin: 12px 0 0;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
+      color: #0f172a;
     }
 
-    .panel p {
-      margin-top: 12px;
-      color: var(--muted);
-      line-height: 1.6;
+    .card p {
+      color: #475467;
+      line-height: 1.7;
+      margin: 16px 0 0;
     }
 
     .chips {
@@ -144,160 +120,156 @@
     }
 
     .chip {
-      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 6px 12px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      font-size: 0.9rem;
+      color: #475467;
+      background: #fff;
+    }
+
+    .list {
+      margin-top: 32px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .list article {
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .list h4 {
+      margin: 0 0 8px;
+      font-size: 1.05rem;
+      color: #0f172a;
+    }
+
+    .list span {
       font-size: 0.85rem;
-      color: var(--muted);
+      color: #94a3b8;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
-    .timeline {
-      margin-top: 40px;
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
-      padding-left: 24px;
-    }
-
-    .event {
-      margin-bottom: 24px;
-      position: relative;
-    }
-
-    .event::before {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      background: var(--bg);
-      left: -30px;
-      top: 4px;
-    }
-
-    .event h4 {
-      margin: 0;
-      font-size: 1.1rem;
-    }
-
-    .event span {
-      color: var(--muted);
-      font-size: 0.85rem;
+    .list p {
+      margin: 16px 0 0;
+      color: #475467;
+      line-height: 1.7;
     }
 
     footer {
-      margin-top: 80px;
+      margin-top: 56px;
       text-align: center;
-      color: var(--muted);
+      color: #94a3b8;
       font-size: 0.85rem;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
     }
 
     @media (max-width: 640px) {
-      .hero-card {
-        padding: 24px;
+      body {
+        padding: 32px 12px 48px;
       }
-      section {
-        margin-top: 48px;
+      .page {
+        border-radius: 22px;
+        padding: 32px 24px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
+  <div class="page">
     <header>
-      <div class="hero-card">
-        <div class="tagline">Capoo · Cloud Garden</div>
-        <h1>蓝色毛球的心情调色盘</h1>
-        <p>
-          Capoo 是一种把慵懒、恶作剧与软萌融合得近乎完美的存在。
-          这一页把它的颜色、表情和灵感全部铺开，像是一座随时会冒泡的情绪花园。
+      <div class="hero">
+        <div class="tagline">CAPOO DAILY</div>
+        <h1>蓝色毛球的随手笔记</h1>
+        <p class="lead">
+          Capoo 有自己的节奏：醒来先发呆、午后突然暴走、晚上又窝成一团。
+          这是一页式小档案，记录它的日常情绪、配色和灵感片段。
         </p>
       </div>
-      <svg class="capoo-avatar" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capoo illustration">
+      <svg class="avatar" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capoo插画">
         <defs>
-          <linearGradient id="body" x1="0%" x2="100%">
-            <stop offset="0%" stop-color="#68e0ff" />
-            <stop offset="100%" stop-color="#6c7dff" />
+          <linearGradient id="avatar-body" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#7dd3fc" />
+            <stop offset="100%" stop-color="#60a5fa" />
           </linearGradient>
-          <linearGradient id="belly" x1="0%" x2="0%" y1="0%" y2="100%">
-            <stop offset="0%" stop-color="#f8fbff" stop-opacity="0.9" />
-            <stop offset="100%" stop-color="#cde8ff" stop-opacity="0.6" />
+          <linearGradient id="avatar-shadow" x1="0%" x2="0%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#e2e8f0" />
+            <stop offset="100%" stop-color="#cfd6ff" />
           </linearGradient>
         </defs>
-        <rect width="360" height="360" rx="48" fill="rgba(3,12,28,0.55)" />
-        <path d="M90 190 C70 160 80 120 110 100 C140 80 180 80 210 100 C240 120 250 160 230 190" fill="url(#body)" />
-        <ellipse cx="170" cy="210" rx="90" ry="70" fill="url(#body)" />
-        <ellipse cx="170" cy="210" rx="70" ry="50" fill="url(#belly)" />
-        <circle cx="135" cy="160" r="16" fill="#041327" />
-        <circle cx="205" cy="160" r="16" fill="#041327" />
-        <path d="M150 190 Q170 210 190 190" stroke="#041327" stroke-width="6" fill="none" stroke-linecap="round" />
-        <path d="M110 110 L85 60 L140 110" fill="#5aaefd" />
-        <path d="M230 110 L255 60 L200 110" fill="#5aaefd" />
-        <circle cx="105" cy="245" r="18" fill="#5aaefd" />
-        <circle cx="235" cy="245" r="18" fill="#5aaefd" />
+        <rect width="240" height="240" rx="32" fill="#eff4ff" />
+        <ellipse cx="120" cy="150" rx="70" ry="52" fill="url(#avatar-body)" />
+        <circle cx="120" cy="100" r="50" fill="url(#avatar-body)" />
+        <path d="M80 65 L65 25 L110 70" fill="#5b9dfc" />
+        <path d="M160 65 L175 25 L130 70" fill="#5b9dfc" />
+        <circle cx="98" cy="100" r="10" fill="#1f2937" />
+        <circle cx="142" cy="100" r="10" fill="#1f2937" />
+        <path d="M105 123 Q120 136 135 123" stroke="#1f2937" stroke-width="5" fill="none" stroke-linecap="round" />
+        <ellipse cx="85" cy="182" rx="14" ry="8" fill="#5b9dfc" />
+        <ellipse cx="155" cy="182" rx="14" ry="8" fill="#5b9dfc" />
+        <ellipse cx="120" cy="200" rx="70" ry="12" fill="url(#avatar-shadow)" opacity="0.6" />
       </svg>
     </header>
 
-    <section>
-      <div class="panel-grid">
-        <article class="panel">
-          <h2>Emotion</h2>
-          <h3>软萌的反差</h3>
-          <p>Capoo 看起来像团棉花糖，却对世界充满恶作剧精神：偷吃、打滚、突然冒出奇怪的动作，让人又好气又好笑。</p>
-          <div class="chips">
-            <span class="chip">🤣 喜剧细胞</span>
-            <span class="chip">😴 慵懒</span>
-            <span class="chip">😼 反派式可爱</span>
-          </div>
-        </article>
-
-        <article class="panel">
-          <h2>Palette</h2>
-          <h3>偏冷色的治愈力</h3>
-          <p>蓝、青、淡紫是 Capoo 的主旋律，像玻璃糖一样的配色，让人看到就降温三度。</p>
-          <div class="chips">
-            <span class="chip" style="border-color:#66e4ff;color:#66e4ff">#66E4FF</span>
-            <span class="chip" style="border-color:#6C7DFF;color:#6C7DFF">#6C7DFF</span>
-            <span class="chip" style="border-color:#B3F6FF;color:#B3F6FF">#B3F6FF</span>
-          </div>
-        </article>
-
-        <article class="panel">
-          <h2>Usage</h2>
-          <h3>最适合放在聊天里</h3>
-          <p>从贴纸、GIF 到网页彩蛋，Capoo 是社交场景里的情绪翻译机。你甚至可以把它当作心情晴雨表。</p>
-          <div class="chips">
-            <span class="chip">Sticker Pack</span>
-            <span class="chip">Loading State</span>
-            <span class="chip">404 页面</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <h2 style="letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Mood Timeline</h2>
-      <div class="timeline">
-        <div class="event">
-          <h4>早餐前</h4>
-          <span>冷静·睡眼惺忪</span>
-          <p>以蓝绿色作底的 Capoo 通常在清晨只会发呆，偶尔打个哈欠。页面背景偏深，表现它的“缓冲”状态。</p>
+    <div class="grid">
+      <article class="card">
+        <h2>Emotion</h2>
+        <h3>懒洋洋 + 突然高能</h3>
+        <p>平时半眯着眼打呵欠，一到想玩的时候就像按下 turbo 键。表情包里所有夸张反应都来自这种反差。</p>
+        <div class="chips">
+          <span class="chip">慢热</span>
+          <span class="chip">戏精</span>
+          <span class="chip">爱偷吃</span>
         </div>
-        <div class="event">
-          <h4>午后高能</h4>
-          <span>多巴胺飙升</span>
-          <p>午后会突然精力爆棚：抓尾巴、自转、拆礼物——你在社交软件里看到的大部分表情包都来自这个阶段。</p>
+      </article>
+
+      <article class="card">
+        <h2>Palette</h2>
+        <h3>蓝调棉花糖</h3>
+        <p>基础色是浅蓝，搭配一丢丢淡紫和奶油白，像刚出炉的棉花糖。看一眼心情直接降温。</p>
+        <div class="chips">
+          <span class="chip" style="color:#0ea5e9;border-color:#bae6fd">#7DD3FC</span>
+          <span class="chip" style="color:#2563eb;border-color:#c7d2fe">#60A5FA</span>
+          <span class="chip" style="color:#475467;border-color:#e2e8f0">#EFF4FF</span>
         </div>
-        <div class="event">
-          <h4>深夜放空</h4>
-          <span>沉静·星光</span>
-          <p>夜晚的 Capoo 会趴在星空下当月亮灯，蓝紫渐变最适合表达它慢慢收起爪子的样子。</p>
+      </article>
+
+      <article class="card">
+        <h2>Use</h2>
+        <h3>贴纸 / Loading / 彩蛋</h3>
+        <p>Capoo 可以塞进各种界面：聊天贴纸、网站 loading、空状态插画。只要需要可爱缓冲，就把它拖进去。</p>
+        <div class="chips">
+          <span class="chip">Sticker</span>
+          <span class="chip">404</span>
+          <span class="chip">Notification</span>
         </div>
-      </div>
+      </article>
+    </div>
+
+    <section class="list">
+      <article>
+        <span>Scene 01</span>
+        <h4>早餐桌边的发呆</h4>
+        <p>Capoo 盯着吐司发呆五分钟，直到奶油滑下去才突然扑过去。适合做“加载中”的动画节奏。</p>
+      </article>
+      <article>
+        <span>Scene 02</span>
+        <h4>午后脚滑</h4>
+        <p>奔跑与翻滚只差零点几秒，有时候脚滑也是梗。可被放到错误页，提示“再来一次”。</p>
+      </article>
+      <article>
+        <span>Scene 03</span>
+        <h4>夜晚抱着尾巴睡</h4>
+        <p>所有高能都放完以后，它会把自己卷成一团。背景放深蓝渐变就能完成一张新的壁纸。</p>
+      </article>
     </section>
 
     <footer>
-      Crafted by Capoo 的小助手 · 自定义内容/配色欢迎再吩咐
+      Capoo · Lazy Day Notes · 想加别的内容随时吩咐
     </footer>
   </div>
 </body>
