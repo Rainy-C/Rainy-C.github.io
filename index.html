@@ -1,85 +1,304 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Capoo — 小蓝猫介绍</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Capoo · Cloud Garden</title>
+  <meta name="description" content="一页式介绍：Capoo 的色彩、情绪与灵感。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#f6fbff;color:#0b2540}
-    .wrap{max-width:900px;margin:56px auto;padding:24px;background:white;border-radius:12px;box-shadow:0 6px 24px rgba(6,22,56,0.08)}
-    header{display:flex;gap:24px;align-items:center}
-    h1{margin:0;font-size:28px}
-    p.lead{color:#294a6a}
-    .capoo{width:220px;height:220px}
-    .attributes{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-    .chip{background:#eaf6ff;padding:8px 12px;border-radius:999px;color:#0b5ea8}
-    footer{margin-top:24px;color:#5c7387;font-size:14px}
+    :root {
+      color-scheme: dark;
+      --bg: #030c1c;
+      --text: #f8fbff;
+      --muted: rgba(248, 251, 255, 0.65);
+      --panel: rgba(9, 22, 45, 0.75);
+      --accent: #66e4ff;
+      --accent-2: #8b7bff;
+      font-size: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: radial-gradient(circle at 20% 20%, rgba(102, 228, 255, 0.18), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(139, 123, 255, 0.25), transparent 45%),
+                  var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: min(7vw, 80px) min(6vw, 56px);
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-card {
+      background: var(--panel);
+      border: 1px solid rgba(102, 228, 255, 0.2);
+      border-radius: 28px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 70px rgba(4, 14, 37, 0.55);
+    }
+
+    .hero-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.12), transparent 45%);
+      pointer-events: none;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 5vw, 3.8rem);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-card p {
+      margin: 16px 0 0;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(102, 228, 255, 0.18);
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .capoo-avatar {
+      width: min(320px, 80vw);
+      justify-self: center;
+      filter: drop-shadow(0 20px 40px rgba(3, 12, 28, 0.65));
+    }
+
+    section {
+      margin-top: 72px;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .panel {
+      background: rgba(6, 18, 38, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 24px;
+      min-height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      font-size: 1rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .panel h3 {
+      margin: 12px 0 0;
+      font-size: 1.4rem;
+    }
+
+    .panel p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .timeline {
+      margin-top: 40px;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      padding-left: 24px;
+    }
+
+    .event {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .event::before {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      background: var(--bg);
+      left: -30px;
+      top: 4px;
+    }
+
+    .event h4 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .event span {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer {
+      margin-top: 80px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        padding: 24px;
+      }
+      section {
+        margin-top: 48px;
+      }
+    }
   </style>
 </head>
 <body>
-  <main class="wrap">
+  <div class="shell">
     <header>
-      <!-- Simple placeholder SVG of a cute blue cat-like creature inspired by Capoo -->
-      <svg class="capoo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+      <div class="hero-card">
+        <div class="tagline">Capoo · Cloud Garden</div>
+        <h1>蓝色毛球的心情调色盘</h1>
+        <p>
+          Capoo 是一种把慵懒、恶作剧与软萌融合得近乎完美的存在。
+          这一页把它的颜色、表情和灵感全部铺开，像是一座随时会冒泡的情绪花园。
+        </p>
+      </div>
+      <svg class="capoo-avatar" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Capoo illustration">
         <defs>
-          <linearGradient id="g" x1="0" x2="1">
-            <stop offset="0" stop-color="#6ad1ff" />
-            <stop offset="1" stop-color="#4aa8ff" />
+          <linearGradient id="body" x1="0%" x2="100%">
+            <stop offset="0%" stop-color="#68e0ff" />
+            <stop offset="100%" stop-color="#6c7dff" />
+          </linearGradient>
+          <linearGradient id="belly" x1="0%" x2="0%" y1="0%" y2="100%">
+            <stop offset="0%" stop-color="#f8fbff" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#cde8ff" stop-opacity="0.6" />
           </linearGradient>
         </defs>
-        <rect width="200" height="200" rx="24" fill="none" />
-        <!-- body -->
-        <ellipse cx="100" cy="120" rx="64" ry="52" fill="url(#g)" />
-        <!-- head -->
-        <circle cx="100" cy="70" r="50" fill="url(#g)" />
-        <!-- ears -->
-        <path d="M70 40 L60 10 L85 30 Z" fill="#3ea0ff" />
-        <path d="M130 40 L140 10 L115 30 Z" fill="#3ea0ff" />
-        <!-- eyes -->
-        <circle cx="85" cy="70" r="8" fill="#05233a" />
-        <circle cx="115" cy="70" r="8" fill="#05233a" />
-        <!-- mouth -->
-        <path d="M92 86 Q100 96 108 86" stroke="#05233a" stroke-width="3" fill="none" stroke-linecap="round" />
-        <!-- small legs -->
-        <ellipse cx="75" cy="162" rx="12" ry="6" fill="#3ea0ff" />
-        <ellipse cx="125" cy="162" rx="12" ry="6" fill="#3ea0ff" />
+        <rect width="360" height="360" rx="48" fill="rgba(3,12,28,0.55)" />
+        <path d="M90 190 C70 160 80 120 110 100 C140 80 180 80 210 100 C240 120 250 160 230 190" fill="url(#body)" />
+        <ellipse cx="170" cy="210" rx="90" ry="70" fill="url(#body)" />
+        <ellipse cx="170" cy="210" rx="70" ry="50" fill="url(#belly)" />
+        <circle cx="135" cy="160" r="16" fill="#041327" />
+        <circle cx="205" cy="160" r="16" fill="#041327" />
+        <path d="M150 190 Q170 210 190 190" stroke="#041327" stroke-width="6" fill="none" stroke-linecap="round" />
+        <path d="M110 110 L85 60 L140 110" fill="#5aaefd" />
+        <path d="M230 110 L255 60 L200 110" fill="#5aaefd" />
+        <circle cx="105" cy="245" r="18" fill="#5aaefd" />
+        <circle cx="235" cy="245" r="18" fill="#5aaefd" />
       </svg>
-      <div>
-        <h1>Capoo — 小蓝猫（示意）</h1>
-        <p class="lead">Capoo 是一只蓝色、像小猫一样的可爱生物，表情丰富，经常出现在各种表情包和萌图里。</p>
-        <div class="attributes">
-          <div class="chip">可爱</div>
-          <div class="chip">蓝色</div>
-          <div class="chip">猫-like</div>
-          <div class="chip">网络流行</div>
-        </div>
-      </div>
     </header>
 
     <section>
-      <h2>关于 Capoo</h2>
-      <p>
-        Capoo（常被称作小蓝猫）是一种在网络上流行的可爱角色，外表以蓝色为主，头部圆润，表情和动作都十分生动。
-        它经常出现在漫画、贴图与短小趣图中，因简单而富有表现力的造型被很多人喜爱。
-      </p>
+      <div class="panel-grid">
+        <article class="panel">
+          <h2>Emotion</h2>
+          <h3>软萌的反差</h3>
+          <p>Capoo 看起来像团棉花糖，却对世界充满恶作剧精神：偷吃、打滚、突然冒出奇怪的动作，让人又好气又好笑。</p>
+          <div class="chips">
+            <span class="chip">🤣 喜剧细胞</span>
+            <span class="chip">😴 慵懒</span>
+            <span class="chip">😼 反派式可爱</span>
+          </div>
+        </article>
 
-      <h3>特点</h3>
-      <ul>
-        <li>蓝色的、圆润的外观，类似小猫但也带点独特的卡通风格。</li>
-        <li>丰富的表情和动作，适合制作表情包。</li>
-        <li>常用于社交媒体和聊天平台表现情绪或搞笑场景。</li>
-      </ul>
+        <article class="panel">
+          <h2>Palette</h2>
+          <h3>偏冷色的治愈力</h3>
+          <p>蓝、青、淡紫是 Capoo 的主旋律，像玻璃糖一样的配色，让人看到就降温三度。</p>
+          <div class="chips">
+            <span class="chip" style="border-color:#66e4ff;color:#66e4ff">#66E4FF</span>
+            <span class="chip" style="border-color:#6C7DFF;color:#6C7DFF">#6C7DFF</span>
+            <span class="chip" style="border-color:#B3F6FF;color:#B3F6FF">#B3F6FF</span>
+          </div>
+        </article>
 
-      <h3>使用与版权</h3>
-      <p>
-        注意：Capoo 的具体形象可能属于某个原创作者或版权方。如果要使用官方插画或商品图，请确认版权与授权。
-        页面当前使用的是示意图（SVG 占位），如需替换为你许可的图片，请把图片上传或提供链接。
-      </p>
-
-      <footer>
-        页面由你的互联网小助手创建 — 如需修改文案、配色或加上实际图片，告诉我就行。
-      </footer>
+        <article class="panel">
+          <h2>Usage</h2>
+          <h3>最适合放在聊天里</h3>
+          <p>从贴纸、GIF 到网页彩蛋，Capoo 是社交场景里的情绪翻译机。你甚至可以把它当作心情晴雨表。</p>
+          <div class="chips">
+            <span class="chip">Sticker Pack</span>
+            <span class="chip">Loading State</span>
+            <span class="chip">404 页面</span>
+          </div>
+        </article>
+      </div>
     </section>
-  </main>
+
+    <section>
+      <h2 style="letter-spacing:0.2em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;">Mood Timeline</h2>
+      <div class="timeline">
+        <div class="event">
+          <h4>早餐前</h4>
+          <span>冷静·睡眼惺忪</span>
+          <p>以蓝绿色作底的 Capoo 通常在清晨只会发呆，偶尔打个哈欠。页面背景偏深，表现它的“缓冲”状态。</p>
+        </div>
+        <div class="event">
+          <h4>午后高能</h4>
+          <span>多巴胺飙升</span>
+          <p>午后会突然精力爆棚：抓尾巴、自转、拆礼物——你在社交软件里看到的大部分表情包都来自这个阶段。</p>
+        </div>
+        <div class="event">
+          <h4>深夜放空</h4>
+          <span>沉静·星光</span>
+          <p>夜晚的 Capoo 会趴在星空下当月亮灯，蓝紫渐变最适合表达它慢慢收起爪子的样子。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Crafted by Capoo 的小助手 · 自定义内容/配色欢迎再吩咐
+    </footer>
+  </div>
 </body>
 </html>
