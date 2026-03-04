@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Capoo — 小蓝猫介绍</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:0;background:#f6fbff;color:#0b2540}
+    .wrap{max-width:900px;margin:56px auto;padding:24px;background:white;border-radius:12px;box-shadow:0 6px 24px rgba(6,22,56,0.08)}
+    header{display:flex;gap:24px;align-items:center}
+    h1{margin:0;font-size:28px}
+    p.lead{color:#294a6a}
+    .capoo{width:220px;height:220px}
+    .attributes{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+    .chip{background:#eaf6ff;padding:8px 12px;border-radius:999px;color:#0b5ea8}
+    footer{margin-top:24px;color:#5c7387;font-size:14px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <!-- Simple placeholder SVG of a cute blue cat-like creature inspired by Capoo -->
+      <svg class="capoo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0" stop-color="#6ad1ff" />
+            <stop offset="1" stop-color="#4aa8ff" />
+          </linearGradient>
+        </defs>
+        <rect width="200" height="200" rx="24" fill="none" />
+        <!-- body -->
+        <ellipse cx="100" cy="120" rx="64" ry="52" fill="url(#g)" />
+        <!-- head -->
+        <circle cx="100" cy="70" r="50" fill="url(#g)" />
+        <!-- ears -->
+        <path d="M70 40 L60 10 L85 30 Z" fill="#3ea0ff" />
+        <path d="M130 40 L140 10 L115 30 Z" fill="#3ea0ff" />
+        <!-- eyes -->
+        <circle cx="85" cy="70" r="8" fill="#05233a" />
+        <circle cx="115" cy="70" r="8" fill="#05233a" />
+        <!-- mouth -->
+        <path d="M92 86 Q100 96 108 86" stroke="#05233a" stroke-width="3" fill="none" stroke-linecap="round" />
+        <!-- small legs -->
+        <ellipse cx="75" cy="162" rx="12" ry="6" fill="#3ea0ff" />
+        <ellipse cx="125" cy="162" rx="12" ry="6" fill="#3ea0ff" />
+      </svg>
+      <div>
+        <h1>Capoo — 小蓝猫（示意）</h1>
+        <p class="lead">Capoo 是一只蓝色、像小猫一样的可爱生物，表情丰富，经常出现在各种表情包和萌图里。</p>
+        <div class="attributes">
+          <div class="chip">可爱</div>
+          <div class="chip">蓝色</div>
+          <div class="chip">猫-like</div>
+          <div class="chip">网络流行</div>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>关于 Capoo</h2>
+      <p>
+        Capoo（常被称作小蓝猫）是一种在网络上流行的可爱角色，外表以蓝色为主，头部圆润，表情和动作都十分生动。
+        它经常出现在漫画、贴图与短小趣图中，因简单而富有表现力的造型被很多人喜爱。
+      </p>
+
+      <h3>特点</h3>
+      <ul>
+        <li>蓝色的、圆润的外观，类似小猫但也带点独特的卡通风格。</li>
+        <li>丰富的表情和动作，适合制作表情包。</li>
+        <li>常用于社交媒体和聊天平台表现情绪或搞笑场景。</li>
+      </ul>
+
+      <h3>使用与版权</h3>
+      <p>
+        注意：Capoo 的具体形象可能属于某个原创作者或版权方。如果要使用官方插画或商品图，请确认版权与授权。
+        页面当前使用的是示意图（SVG 占位），如需替换为你许可的图片，请把图片上传或提供链接。
+      </p>
+
+      <footer>
+        页面由你的互联网小助手创建 — 如需修改文案、配色或加上实际图片，告诉我就行。
+      </footer>
+    </section>
+  </main>
+</body>
+</html>
